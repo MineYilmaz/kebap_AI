@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kebab AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="hero">
+        <p class="eyebrow">AI kitchen starter</p>
+        <h1>Kebab AI</h1>
+        <p class="tagline">Generate a quick flavor concept for your next grilled dish.</p>
+      </header>
+
+      <section class="panel">
+        <form id="idea-form">
+          <label for="dish">Dish</label>
+          <input id="dish" name="dish" type="text" value="kebab" placeholder="e.g. kebab, bowl, wrap" />
+
+          <label for="mood">Mood</label>
+          <input id="mood" name="mood" type="text" value="fresh" placeholder="e.g. smoky, spicy, bright" />
+
+          <button type="submit">Generate idea</button>
+        </form>
+      </section>
+
+      <section id="result" class="result hidden" aria-live="polite">
+        <h2 id="result-title">Ready to cook</h2>
+        <p id="result-summary"></p>
+      </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>

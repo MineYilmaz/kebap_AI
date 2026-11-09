@@ -1,0 +1,18 @@
+Kurulum notlari
+===============
+
+uv: Python surumlerini, sanal ortami ve pyproject.toml bagimliliklarini yoneten hizli paket/ortam aracidir. `uv sync --group dev` ortamla kilit dosyasini eslestirir; `uv run` komutlari bu ortamda calistirir.
+
+Flask: HTTP rotalarini ve JSON yanitlarini olusturan web kutuphanesidir.
+python-dotenv: `.env` dosyasindaki yerel ayarlari ortam degiskenlerine yukler.
+pytest: Test fonksiyonlarini bulur, calistirir ve basarisiz kontrolleri raporlar.
+DeepEval: Chatbot yanitlarini metriklerle test eden LLM degerlendirme kutuphanesidir; eval testleri `uv run deepeval test run` ile calisir.
+Confident AI: DeepEval test kosularini incelemek icin kullanilan platformdur; `uv run deepeval login` ile API key dogrulamasi yapilir.
+httpx: Chatbot'a HTTP POST istegi gonderir; MockTransport ile agsiz birim testlerini destekler.
+Settings: .env ve ortam degiskenlerinden chatbot, timeout ve judge ayarlarini okur.
+ChatbotClient.send(): CHATBOT_INPUT_KEY alanini kullanarak mesaj JSON'u POST eder; HF_TOKEN varsa Bearer basligi ekler.
+ChatbotClient.ask(): POST istegini yapar, HTTP hatalarini bildirir ve JSON yanitini dondurur.
+
+create_app(): Flask uygulamasini ortam ayarlariyla kurar; testler icin ayarlari gecersiz kilmaya izin verir.
+health(): Uygulama durumunu ve yapilandirilmis uygulama adini JSON olarak dondurur.
+generate(): JSON isteginden yemek/fikir girdilerini alir, eksik degerleri ayarlardan tamamlar ve JSON sonuc uretir.
